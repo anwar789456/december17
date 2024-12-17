@@ -1,0 +1,121 @@
+.cartDiv {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    overflow-y: auto;
+    border-radius: 0;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.cartItem {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding-top: 7px;
+    padding-left: 15px;
+    padding-bottom: 7px;
+    border-top: 1px solid rgba(48, 48, 48, 0.3);
+}
+
+.productImageCart {
+    flex: 0 0 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgCart {
+    border: 1px solid rgba(48, 48, 48, 0.3);
+    max-width: 100%;
+    max-height: 130px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.tableGrid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.itemInfo p {
+    color: rgba($color: #303030, $alpha: 1);
+    font-family: "Cormorant Garamond", serif;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: .1em;
+    word-spacing: .15em;
+    margin: 0;
+    font-size: 16px;
+}
+
+.itemInfo .numberStyle {
+    font-weight: bold;
+}
+
+.itemInfo .tnworddesign {
+    color: rgba($color: #303030, $alpha: 1);
+    font-family: "Cormorant Garamond", serif;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0;
+    font-size: 10px;
+}
+
+.emptyCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    color: #999;
+    font-size: 1.2rem;
+}
+
+.emptyCartText {
+    font-size: 1rem;
+    color: #666;
+}
+
+.totalSection {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    margin-top: auto;
+    border-top: 1px solid #ccc;
+}
+
+.totalLabel {
+    color: rgba($color: #303030, $alpha: 1);
+    font-family: "Cormorant Garamond", serif;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: .1em;
+    word-spacing: .15em;
+    font-size: 20px;
+    margin: 0;
+}
+
+.totalAmount {
+    color: rgba($color: #303030, $alpha: 1);
+    font-family: "Cormorant Garamond", serif;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: .1em;
+    word-spacing: .15em;
+    font-size: 20px;
+    margin: 0;
+}

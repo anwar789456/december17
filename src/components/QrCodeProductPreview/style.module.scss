@@ -1,0 +1,38 @@
+.swiperContainer {
+    width: 100%;
+    cursor: grab;
+}
+.swiperNavigation{
+    :global(.swiper-button-next),
+    :global(.swiper-button-prev) {
+      background-color: rgba(40, 38, 38, 0.5);
+      color: #ccc;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 73%;
+      transform: translateY(-73%);
+    }
+  
+    :global(.swiper-button-next::after),
+    :global(.swiper-button-prev::after) {
+      font-size: 12px;
+    }
+  
+    :global(.swiper-button-next) {
+      right: 0px;
+    }
+  
+    :global(.swiper-button-prev) {
+      left: 0px;
+    }
+  
+    :global(.swiper-button-next.swiper-button-disabled),
+    :global(.swiper-button-prev.swiper-button-disabled) {
+      opacity: 0;
+      pointer-events: none;
+    }
+}

@@ -1,0 +1,351 @@
+.productPreviewContainer{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.carouselContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    .imageCarousel {
+      width: 100%;
+      display: flex;
+      position: relative;
+      flex-direction: column;
+    }
+}
+
+.controlsContainer {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin-top: -1.8rem;
+  gap: 2rem;
+  
+  .heartButtonDiv{
+    position: absolute;
+    top: 0px;
+    left: 10px;
+  }
+  
+  
+  .shareButtonDiv{
+    position: absolute;
+    top: -2px;
+    left: 44px;
+  }
+  
+  .favorisIcon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .favorisIcon svg {
+    transition: all 0.5s ease-in-out;
+  }
+
+  .arrow {
+    //background-color: white;
+    //display: none;
+    //font-size: 2rem;
+    width: 5px;
+    cursor: pointer;
+    //margin: 0 1rem;
+    transition: color 0.3s;
+    
+
+    &:hover {
+      color: rgba($color: #303030, $alpha: 0.9);
+    }
+
+    span {
+      display: inline-block;
+      //width: 11px;
+      height: 11px;
+      position: relative;
+    }
+
+    .leftArrow:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      border-left: 1px solid #303030;  /* left arrow line */
+      border-top: 1px solid #303030;   /* left arrow line */
+      transform: translate(-50%, -50%) rotate(-45deg);
+      
+    }
+    .rightArrow:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      border-right: 1px solid #303030; /* right arrow line */
+      border-top: 1px solid #303030;   /* right arrow line */
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    
+  }
+  .paginationDots {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      //background-color: rgba($color: #303030, $alpha: 0.15);
+      background-color: transparent;
+      border: 1px solid rgba($color: #303030, $alpha: 0.2);
+      cursor: pointer;
+      transition: background-color 0.3s;
+      
+      /*&:hover {
+        background-color: rgba($color: #303030, $alpha: 1);
+      }*/
+    }
+  
+    .active {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+    }
+  }
+
+}
+
+.heart {
+    position: absolute;
+    top: 60%;
+    left: 35%;
+    transform: translate(-35%, -60%);
+    z-index: 5996;
+    pointer-events: none;
+}
+.shareBarOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5475484894; 
+}
+.shareBar {
+  background-color: rgba($color: #000000, $alpha: 1);
+  padding: 5px;
+  border-radius: 8px;
+  width: 95%;
+  height: auto;
+  text-align: center;
+  position: relative;
+  @media (min-width: 700px) {
+    width: 600px;
+  }
+}
+.closeBtn {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: rgba($color: #ccc, $alpha: 1);
+  cursor: pointer;
+}
+.shareText{
+  margin-top: 1rem;
+  color: rgba($color: #c6c6c6, $alpha: 0.7);
+  letter-spacing: .2em;
+  font-size: 12px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.loadingTxt{
+  text-align: center;
+  color: rgba($color: #303030, $alpha: 1);
+  letter-spacing: .2em;
+  font-size: 14px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.shareLinkDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.shareLink {
+  display: flex;
+  flex-direction: column; /* Keep icon above text */
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  margin: 0 10px; /* Add space between items */
+}
+.iconContainer {
+  display: flex;
+  flex-direction: column; /* Keep icon above text */
+  align-items: center;
+}
+.icon {
+  background-color: rgba(48, 48, 48, 0.7);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.copyButton {
+  display: flex;
+  align-items: center;
+  background: #ccc;
+  border: 1px solid rgba($color: #303030, $alpha: 1.0);
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 800;
+
+  &:hover {
+    background: #ffffff;
+  }
+
+  .copyIcon {
+    margin-right: 0.3rem;
+    color: #000000;
+  }
+}
+.urlContainer {
+  display: flex;
+  align-items: center;
+  background-color: transparent; 
+  border: 1px solid rgba($color: #303030, $alpha: .7);
+  border-radius: 8px;
+  padding: .3rem .8rem;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.urlText {
+  flex: 1;
+  color: rgba($color: #ccc, $alpha: 1.0);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+.productDetails {
+  margin-top: 5px;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: justify;
+
+  .Productinfos {
+    padding-bottom: 8px;
+  }
+
+  .titleDiv {
+    text-align: left;
+    text-transform: uppercase;
+
+    @media (max-width: 900px) {
+      text-align: center;
+      text-align: center;
+    }
+  }
+
+  .titleInfo {
+    color: rgba($color: #303030, $alpha: 0.8);
+    letter-spacing: .2em;
+    font-size: 20px;
+    font-family: "Cormorant Garamond", serif;
+    font-style: normal;
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+
+  .priceDiv {
+    text-align: left;
+    @media (max-width: 900px) {
+      text-align: center;
+      text-align: center;
+    }
+  }
+
+  .priceInfo {
+    color: rgba($color: #303030, $alpha: 0.7);
+    //text-transform: lowercase;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-style: normal;
+    .fromPrice{
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      padding-right: 10px;
+      text-transform: uppercase;
+      color: rgba($color: #303030, $alpha: 0.75);
+      font-family: "Cormorant Garamond", serif;
+      font-style: normal;
+      font-weight: 100;
+    }
+    .minmaxPrice{
+      letter-spacing: .05em;
+      font-size: 19px;
+    }
+
+    @media (max-width: 900px) {
+      .minmaxPrice{
+        letter-spacing: .1em;
+        font-size: 15px;
+      }
+      
+    }
+  }
+
+  .tnworddesign{
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: rgba($color: #303030, $alpha: 0.7);
+    letter-spacing: 0.09em;
+  }
+
+  .Description{
+    margin: 8px 0 3px;
+
+    .DescriptionP{
+      color: rgba($color: #303030, $alpha: 0.8);
+      letter-spacing: .05em;
+      word-spacing: 0.1em;
+      font-size: 16px;
+      font-family: Cormorant, serif;
+      font-style: normal;
+      font-weight: 100;
+    }
+  }
+}

@@ -1,0 +1,332 @@
+.cartContainer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 33vw;
+    height: 100vh;
+    background: #f3f2ec;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 9999999123;
+    padding-top: 1px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 0;
+}
+
+.closeButton {
+    position: absolute;
+    top: .8rem;
+    right: .7rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+}
+
+.cartItemsDiv{
+    flex: 1;
+    overflow-y: auto;
+    max-height: calc(100% - 110px);
+}
+.totalPriceContainer {
+    height: 110px;
+}
+
+.numberStyle{
+    font-family: Cormorant, serif;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 100;
+    text-transform: lowercase;
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    color: rgba($color: #303030, $alpha: 0.8);
+}
+
+.headerContainer{
+    width: 100%;
+    border-bottom: 0.5px solid rgba($color: #303030, $alpha: 0.2);
+}
+.cartTitle {
+    padding: 11.5px 2rem;
+    .cartH1{
+        font-family: "Cormorant Garamond", serif;
+        font-style: normal;
+        text-decoration: none;
+        font-weight: 100;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 15px;
+        color: rgba($color: #303030, $alpha: 1.0);
+    }
+}
+
+.tableGrid{
+    display: grid;
+}
+.productImageCart{
+    margin-right: 5px;
+    margin-left: 5px;
+    align-content: center;
+    align-self: center;
+
+    width: 9rem;
+    height: 9rem;
+    .imgCart{
+        border-radius: 2px;
+    }                                                                                                                                                                                                           
+
+    @media (max-width: 600px) {
+        width: 8rem;
+        height: 8rem;
+    }
+
+}
+
+.cartItemsContainer {
+    overflow-y: auto;
+    position: relative;
+    height: calc(100vh - 3rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.emptyCart{
+    position: absolute;
+    top: 40%;
+    left: 0;
+    transform: translate(0, -40%);
+    width: 100%;
+    text-align: center;
+}
+
+.emptyCartText{
+    font-family: "Cormorant Garamond", serif;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 15px;
+    color: rgba($color: #303030, $alpha: 0.8);
+}
+  
+.cartItem {
+    width: 100%;
+    display: flex;
+    padding: 1px;
+    border-bottom: 1px solid rgba($color: #303030, $alpha: 0.2);
+}
+
+.itemInfo {
+    font-family: "Cormorant Garamond", serif;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 15px;
+    color: rgba($color: #303030, $alpha: 1.0);
+    display: flex;
+    flex-direction: column;
+    //text-align: left;
+
+    @media (max-width: 600px) {
+        font-size: 14px;
+    }
+
+}
+
+
+.itemActions {
+    
+    display: flex;
+    .quantityController {
+        position: relative;
+        border: 1px solid rgba(#303030, 0.3);
+        border-radius: 4px;
+        padding: 2px 30px;
+        height: 28px;
+        display: flex;
+        justify-content: center;
+
+        .minusButton {
+            position: absolute;
+            left: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(#303030, 1.0);
+        }
+
+        .quantityValue {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            font-family: Cormorant, serif;
+            color: rgba(#303030, 0.8);
+        }
+
+        .plusButton {
+            position: absolute;
+            right: 1px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(#303030, 1.0);
+        }
+    }
+
+    .removeButton {
+        margin-bottom: 5px;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 200;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        border-radius: 4px;
+        margin-left: 10px;
+        height: 28px;
+        font-size: 16px;
+        color: rgba(#8d0909, 1.0);
+        border: 1px solid rgba(#8d0909, 0.6);
+        padding: 0px 10px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        //justify-self: end;
+    }
+
+    .removeButton:hover {
+        color: #e2e2e2;
+        background-color: rgba(#8d0909, 1);
+    }
+
+    @media (max-width: 600px) {
+        .removeButton {
+            margin-left: 4px;
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    .cartContainer {
+        width: 45vw;
+    }
+}
+
+@media (max-width: 1000px) {
+    .cartContainer {
+        width: 50vw;
+    }
+}
+
+@media (max-width: 800px) {
+    .cartContainer {
+        width: 60vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .cartContainer {
+        width: 75vw;
+    }
+}
+
+
+@media (max-width: 450px) {
+    .cartContainer {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 380px) {
+    .cartContainer {
+        width: 100vw;
+    }
+}
+
+.totalPrice {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 110px;
+    padding-bottom: 0;
+    padding: 20px;
+    border-top: 1px solid rgba($color: #303030, $alpha: 0.1);
+    .checkOutText {
+      color: rgba($color: #303030, $alpha: 1);
+      font-family: "Cormorant Garamond", serif;
+      font-style: normal;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .1em;
+      word-spacing: .2em;
+      margin-bottom: 10px;
+    }
+  
+    .commandButton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: max-content;
+      width: 100%;
+      background-color: rgba($color: #303030, $alpha: 1);
+      border: 1px solid rgba($color: #303030, $alpha: 0.2);
+      color: #f3f2ec;
+      font-family: "Cormorant Garamond", serif;
+      text-transform: uppercase;
+      border-radius: 4px;
+      letter-spacing: .1em;
+      word-spacing: .15em;
+      padding: 10px 5px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in;
+      text-align: center;
+  
+      &:hover {
+        background-color: rgba($color: #303030, $alpha: 1);
+      }
+  
+      &:active {
+        background-color: rgba($color: #303030, $alpha: 0.8);
+      }
+  
+      .btnTextContainer {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .commanderText{
+        text-align: left;
+      }
+  
+      .totalPriceTextContainer {
+        margin-left: 0;
+      }
+  
+      .totalPriceText {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 16px;
+        margin-left: 5px;
+      }
+  
+      .tnworddesign {
+        // font-family: "Cormorant Garamond", serif;
+        // font-weight: 400;
+        // text-transform: uppercase;
+        // letter-spacing: 0.1em;
+        // margin-left: 5px;
+        // font-size: 16px;
+        font-size: 8px;
+        font-weight: 100;
+        color: #f3f2ec;
+        letter-spacing: 0.09em;
+      }
+    }
+}

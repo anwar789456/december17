@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+
+.body {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    a {
+        color: #303030;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    .linkGroup {
+        display: flex;
+        flex-direction: column;
+        margin-right: 30px;
+        padding-top: 10px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    p {
+        margin: 0;
+        display: flex;
+        overflow: hidden;
+        font-size: 21px;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 500;
+        font-style: normal;
+        letter-spacing: 0.1em;
+    }
+    .subLinks {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-transform: capitalize;
+        height: 8rem;
+        overflow-y: hidden;
+        transition: all 0.3s ease;
+        overflow-y: auto;
+    }
+    .center_p{
+        text-align: center;
+    }
+    .subLinks p {
+        font-size: 15px;
+        margin-top: 3px;
+        color: rgb(161, 161, 161);
+        transition: .2s color ease-in-out;
+    }
+    .subLinks p:hover{
+        color: rgb(60, 60, 60);
+        transition: .2s color ease-in-out;
+    }
+}
+
+.subLinksContainer {
+    max-height: 200px;
+    overflow-y: hidden;
+    position: relative;
+    //border-bottom: .01em solid rgba($color: #303030, $alpha: 0.2);
+}
+.scrollIndicatorContainer{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.scrollArrow {
+    color: rgb(133, 133, 133);
+    font-size: 1rem;
+    background-color: rgba(127, 127, 127, 0.1);
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+}
+.scrollArrow:hover {
+    color: rgb(60, 60, 60);
+}

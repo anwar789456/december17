@@ -1,0 +1,41 @@
+.mainDiv {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.contentDiv {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.checkoutForm, .cartDetails {
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .contentDiv {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .checkoutForm, .cartDetails {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+}
+

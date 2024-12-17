@@ -1,0 +1,38 @@
+.nav {
+    overflow: hidden;
+    background-color: #f3f2ec;
+    width: 100vw;
+    left: 0;
+    top: 3rem;
+    position: absolute;
+    z-index: 99;
+  
+    .wrapper {
+      display: flex;
+      gap: 50px;
+      padding: 20px;
+    }
+
+    .glowing {
+        width: auto;
+        height: fit-content;
+        transition: 0s all ease-in-out;
+        border-radius: 3px;
+        box-shadow: -5px 11px 15px 7px #303030;
+    }
+  
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .nav {
+        .wrapper {
+          margin-bottom: 0px;
+          justify-content: space-between;
+        }
+    }
+} 

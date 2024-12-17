@@ -1,0 +1,219 @@
+.carouselContainer {
+  position: relative;
+  width: 100vw;
+  height: 98vh;
+  margin-bottom: 30px;
+  overflow: hidden;
+  transition: height 0.5s ease-in-out;
+  @media (max-width: 800px) {
+    height: 95dvh;
+    transition: height 0.5s ease-in-out;
+  }
+}
+.slidesContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease;
+}
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.prevButton, .nextButton {
+  position: absolute;
+  top: 50%;
+  opacity: 0;
+  transform: translateY(-50%);
+  background-color: rgba(40, 38, 38, 0.5);
+  border: none;
+  cursor: auto;
+  z-index: 10;
+  width: 40px;
+  height: 100%;
+  // border-radius: 50%;
+  transition: background-color 0.3s ease, opacity 0.3s ease; // Add opacity transition
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+.prevButton.hidden, .nextButton.hidden {
+  opacity: 0;
+}
+.prevButton:hover, .nextButton:hover {
+  background-color: rgba(40, 38, 38, 0.8);
+}
+.prevButton {
+  left: 0;
+  opacity: 0;
+}
+.nextButton {
+  right: 0;
+  opacity: 0;
+}
+.arrowleft {
+  border: solid #f3f2ec;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.arrowright{
+  border: solid #f3f2ec;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.prevButton:hover, .nextButton:hover {
+  background-color: rgba(40, 38, 38, 0.8);
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 25px;
+  left: 3rem;
+}
+.paginationButton {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #f3f2ec;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+.paginationButton.hidden {
+  opacity: 0;
+}
+.paginationButton.active {
+  background-color: #f3f2ec;
+}
+
+.slideInfo {
+  position: absolute;
+  bottom: 60px;
+  left: 3rem;
+  z-index: 10;
+}
+
+.slideInfo h2 {
+  text-align: left;
+  color: #f2f2f2;
+  letter-spacing: .15em;
+  font-size: 18px;
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.exploreButton {
+  margin-top: 15px;
+  width: 200px;
+  height: 45px;
+  background-color: #f3f2ec;
+  border-radius: 2px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  p{
+      z-index: 1;
+      color: #1C1D20;
+      letter-spacing: .2em;
+      font-size: 15px;
+      word-spacing: .1em;
+      text-transform: uppercase;
+      font-family: "Cormorant Garamond", serif;
+      font-style: normal;
+      font-weight: 500; 
+  }
+}
+
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.scrollDownButton {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  transform: translateX(-50%);
+  background-color: rgba(40, 38, 38, 0.7);
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  
+  &:hover {
+    transform: translateX(-50%) scale(1.2);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+  }
+
+  &:active {
+    transform: translateX(-50%) scale(0.9);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3); /* Shadow on active */
+  }
+
+  & .arrowDown {
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  &:hover .arrowDown,
+  &:active .arrowDown {
+    animation: slideDown 0.3s forwards, slideUp 0.3s 0.3s forwards;
+  }
+}

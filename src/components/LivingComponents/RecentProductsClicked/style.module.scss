@@ -1,0 +1,106 @@
+.container {
+  width: 100%;
+  margin-bottom: 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba($color: #303030, $alpha: 0.2);
+  //border-bottom: 1px solid rgba($color: #303030, $alpha: 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiperContainer {
+  width: 100%;
+  cursor: grab;
+}
+/*
+@media (max-width: 1500px) {
+  .swiperContainer {
+    width: 90%;
+  }
+}
+
+@media (max-width: 800px) {
+  .swiperContainer {
+    width: 100%;
+  }
+}
+*/
+.titleDiv{
+  text-align: center;
+}
+
+.title{
+  font-size: 20px;
+  color: rgba($color: #303030, $alpha: 0.5);
+  letter-spacing: .17em;
+  word-spacing: .2em;
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.swiperSlide {
+  padding-bottom: 50px;
+}
+
+
+.linkContainer{
+  //border: 1px solid rgba($color: #303030, $alpha: 0.2);
+  margin-top: 20px;
+  //padding: 10px;
+  transition: scale .2s ease-in-out;
+  //box-shadow: 0 4px 10px rgba(209, 17, 17, 0.1);
+}
+.tnSign{
+  font-size: 7px;
+  letter-spacing: 0.15em;
+  padding-top: 5px;
+  padding-left: 3px;
+  text-transform: uppercase;
+  color: rgba($color: #303030, $alpha: .8);
+  font-family: Cormorant, serif;
+  font-style: normal;
+  font-weight: 100;
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  
+}
+
+.productImage {
+  width: 300px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+.productName {
+  font-size: 10px;
+  color: rgba($color: #303030, $alpha: 0.8);
+  letter-spacing: .10em;
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 500;
+
+}
+
+.productPrice {
+  margin-top: 5px;
+  font-size: 10px;
+  color: rgba($color: #303030, $alpha: .8);
+  letter-spacing: .10em;
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 500;
+}

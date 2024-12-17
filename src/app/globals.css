@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    margin: 0px;
+    /*overflow: auto;*/
+    overflow-x: hidden;
+    cursor: auto;
+    background-color: #f3f2ec;
+}
+
+::-webkit-scrollbar{
+    background-color: transparent;
+    display: none; /* change to block */
+    width: 2px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    background-color: hsl(233, 9%, 37%);
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(229, 9%, 51%);
+}

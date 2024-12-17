@@ -1,0 +1,912 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+.productPage {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0;
+  padding-bottom: 10rem;
+
+  @media (min-width: 900px) {
+    flex-direction: row;
+  }
+}
+
+.share-bar a {
+  text-decoration: none;
+  color: white;
+  background-color: #25D366; /* WhatsApp green */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.loadingDiv{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  align-content: center;
+  text-align: center;
+}
+
+.loadingText{
+  font-size: 14px;
+  color:rgba($color: #c6c6c6, $alpha: 1);
+  margin: 0;
+  letter-spacing: .2em;
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.imageGallery {
+  display: none;
+  position: relative;
+  margin-top: 10px;
+
+  @media (min-width: 900px) {
+    display: block;
+    width: 8rem;
+    height: 80vh;
+    margin-left: 4rem;
+    overflow-y: auto;
+  }
+
+  .scrollImages {
+    background-color: transparent;
+  }
+  .image{
+    border-radius: 2px;
+  }
+
+  .thumbnail {
+    padding: 1px;
+    margin-bottom: 1px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: border-color 0.4s ease-in-out, opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.7;
+      border-color: rgb(120, 120, 120);
+    }
+
+    &.selected {
+      border-color: black;
+    }
+  }
+}
+
+.tooltipBox {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  width: auto;
+  padding: 7px;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+}
+
+.tooltipBox::after {
+  content: '';
+  position: absolute;
+  top: -5px; /* Adjusted to ensure it blends smoothly */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.6);
+}
+
+.tooltipContent {
+  position: relative;
+  text-align: center;
+}
+
+.productName {
+  font-size: 14px;
+  color:rgba($color: #c6c6c6, $alpha: 1);
+  letter-spacing: .2em;
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.productPrice {
+  font-size: 12px;
+  color: #333;
+  margin: 5px 0 0;
+}
+.mainImageWrapper{
+  position: relative;
+}
+
+.mainImage {
+  position: relative;
+  width: 80%;
+  height: fit-content;
+  margin: 0 auto;
+  cursor: pointer;
+  @media (min-width: 900px) {
+    width: 40%;
+  }
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+  .mainImageimg{
+    border-radius: 2px;
+  }
+}
+
+.favorisIconDetail{
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 11.5px;
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+.shareLinkDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+
+
+.carouselContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+
+  .barClick {
+    position: relative;
+    display: none;
+    background-color: #000000;
+    width: 100%;
+    height: 22px;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    .barClick {
+      display: block;
+    }
+  }
+
+  .barClicktext{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: rgba($color: #c6c6c6, $alpha: 0.7);
+    letter-spacing: .2em;
+    font-size: 12px;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 500;
+    font-style: normal;
+    text-transform: uppercase;
+  }
+
+  .imageCarousel {
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    @media (min-width: 900px) {
+      display: none;
+    }
+
+  }
+}
+
+.controlsContainer {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin-top: -1.5rem;
+  gap: 8px;
+  
+  .heartButtonDiv{
+    position: absolute;
+    top: 0px;
+    left: 10px;
+  }
+  
+  
+  .shareButtonDiv{
+    position: absolute;
+    top: -2px;
+    left: 44px;
+  }
+  
+  .favorisIcon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .favorisIcon svg {
+    transition: all 0.5s ease-in-out;
+  }
+
+  .arrow {
+    width: 5px;
+    cursor: pointer;
+    margin: 0;
+    transition: color 0.3s;
+    
+
+    &:hover {
+      color: rgba($color: #303030, $alpha: 0.9);
+    }
+
+    span {
+      display: inline-block;
+      height: 11px;
+      position: relative;
+    }
+
+    .leftArrow:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 7px;
+      height: 7px;
+      border-left: 1px solid #303030;  /* left arrow line */
+      border-top: 1px solid #303030;   /* left arrow line */
+      transform: translate(-50%, -50%) rotate(-45deg);
+      
+    }
+    .rightArrow:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 7px;
+      height: 7px;
+      border-right: 1px solid #303030; /* right arrow line */
+      border-top: 1px solid #303030;   /* right arrow line */
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    
+  }
+
+  .paginationDots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    .dot {
+      margin-top: 1px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: transparent;
+      border: 1px solid rgba(48, 48, 48, 0.2);
+      cursor: pointer;
+      transition: background-color 0.5s;
+    }
+    
+    .active {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+    }
+  }
+}
+
+.shareButtonDivDetail{
+  padding-top: 10px;
+  margin-left: 5px;
+  margin-right: 6px;
+  width: fit-content;
+}
+.shareButtonDivDet{
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+.heartButtonDivDetail{
+  margin-top: 11.5px;
+  //margin-left: 12px;
+  height: fit-content;
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+.heart {
+  position: absolute;
+  top: 55%;
+  left: 40%;
+  transform: translate(-40%, -55%);
+  z-index: 59985396;
+  pointer-events: none;
+}
+.shareBarOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 148494989459484894;
+  
+}
+.shareText{
+  margin-top: 1rem;
+  color: rgba($color: #c6c6c6, $alpha: 0.7);
+  letter-spacing: .2em;
+  font-size: 12px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-style: normal;
+  text-transform: uppercase;
+}
+.shareBar {
+  background-color: rgba($color: #000000, $alpha: 1);
+  padding: 5px;
+  border-radius: 8px;
+  width: 95%;
+  height: auto;
+  text-align: center;
+  position: relative;
+  @media (min-width: 700px) {
+    width: 600px;
+  }
+}
+.swiperNavigation {
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    background-color: rgba(40, 38, 38, 0.5);
+    color: #ccc;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 73%;
+    transform: translateY(-73%);
+  }
+
+  :global(.swiper-button-next::after),
+  :global(.swiper-button-prev::after) {
+    font-size: 12px;
+  }
+
+  :global(.swiper-button-next) {
+    right: 0px;
+  }
+
+  :global(.swiper-button-prev) {
+    left: 0px;
+  }
+
+  :global(.swiper-button-next.swiper-button-disabled),
+  :global(.swiper-button-prev.swiper-button-disabled) {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+.urlContainer {
+  display: flex;
+  align-items: center;
+  background-color: transparent; 
+  border: 1px solid rgba($color: #303030, $alpha: .7);
+  border-radius: 8px;
+  padding: .3rem .8rem;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.urlText {
+  flex: 1;
+  color: rgba($color: #ccc, $alpha: 1.0);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.copyButton {
+  display: flex;
+  align-items: center;
+  background: #ccc;
+  border: 1px solid rgba($color: #303030, $alpha: 1.0);
+  border-radius: 5px;
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 800;
+
+  &:hover {
+    background: #ffffff;
+  }
+
+  .copyIcon {
+    margin-right: 0.3rem;
+    color: #000000;
+  }
+}
+.closeBtn {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: rgba($color: #ccc, $alpha: 1);
+  cursor: pointer;
+}
+.swiperContainer {
+  width: 100%;
+  cursor: grab;
+}
+.shareLink {
+  display: flex;
+  flex-direction: column; /* Keep icon above text */
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  margin: 0 10px; /* Add space between items */
+}
+.iconContainer {
+  display: flex;
+  flex-direction: column; /* Keep icon above text */
+  align-items: center;
+}
+.icon {
+  background-color: rgba(48, 48, 48, 0.7);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h3.shareText {
+  margin-bottom: 25px; /* Space between title and icons */
+}
+.tnworddesign{
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: rgba($color: #303030, $alpha: 0.7);
+  letter-spacing: 0.09em;
+}
+.tndsign {
+  position: relative;
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 100;
+  color: rgba($color: #303030, $alpha: 0.5);
+
+  &::before {
+    content: "D";
+    position: relative;
+    z-index: 2;
+    transform: scaleX(1.3);  // Expand the "D" horizontally without changing height
+    display: inline-block;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 2.5px;
+    top: 1px;
+    z-index: 1;
+    width: 1px;
+    height: 1rem;
+    background-color: rgba($color: #303030, $alpha: 0.4);  // Color for the lines
+  }
+
+  // Create the second vertical line using box-shadow to place it next to the first one
+  &::after {
+    box-shadow: 2px 0 0 0 rgba($color: #303030, $alpha: 0.4);  // The second line
+  }
+}
+.productDetails {
+  margin-top: 1rem;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: justify;
+
+  @media (min-width: 900px) {
+    width: 30%;
+    position: sticky;
+    top: 0;
+  }
+
+  .Productinfos {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba($color: #303030, $alpha: 0.3);
+  }
+
+  .titleDiv {
+    text-align: left;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+
+    @media (max-width: 900px) {
+      text-align: center;
+      margin-top: 0px;
+      text-align: center;
+    }
+  }
+
+  .titleInfo {
+    color: rgba($color: #303030, $alpha: 0.8);
+    letter-spacing: .2em;
+    font-size: 25px;
+    font-family: "Cormorant Garamond", serif;
+    font-style: normal;
+    font-weight: 100;
+    text-transform: uppercase;
+    
+
+    @media (max-width: 900px) {
+      font-size: 20px;
+    }
+  }
+
+  .priceDiv {
+    
+    text-align: left;
+
+    @media (max-width: 900px) {
+      text-align: center;
+      text-align: center;
+    }
+  }
+
+  .priceInfo {
+    color: rgba($color: #303030, $alpha: 0.7);
+    //text-transform: lowercase;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-style: normal;
+    .fromPrice{
+      font-size: 14px;
+      letter-spacing: 0.15em;
+      padding-right: 10px;
+      text-transform: uppercase;
+      color: rgba($color: #303030, $alpha: 0.75);
+      font-family: "Cormorant Garamond", serif;
+      font-style: normal;
+      font-weight: 100;
+    }
+    .minmaxPrice{
+      letter-spacing: .05em;
+      font-size: 19px;
+    }
+
+    @media (max-width: 900px) {
+      .minmaxPrice{
+        letter-spacing: .1em;
+        font-size: 15px;
+      }
+      
+    }
+  }
+
+
+
+  .Description{
+    margin: 20px 0 40px;
+
+    .DescriptionP{
+      color: rgba($color: #303030, $alpha: 0.9);
+      letter-spacing: .05em;
+      //text-transform: uppercase;
+      word-spacing: 0.1em;
+      font-size: 18px;
+      font-family: "Cormorant Garamond", serif;
+
+      font-style: normal;
+      font-weight: 500;
+    }
+  }
+
+  .FullquantityDiv{
+    display: block;
+    /*@media (max-width: 1200px) {
+      .quantityController{
+
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+      }
+    }*/
+
+    .quantityController {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba($color: #303030, $alpha: 0.2);
+      width: 140px;
+      height: 3rem;
+      border-radius: 4px;
+      margin-top: 20px;
+
+
+      .minusDiv{
+        position: absolute;
+        left: 0;
+        //background-color: rgba($color: #303030, $alpha: 0.05);
+        width: 25%;
+        height: 100%;
+      }
+      .plusDiv{
+        position: absolute;
+        right: 0;
+        //background-color: rgba($color: #303030, $alpha: 0.05);
+        width: 25%;
+        height: 100%;
+      }
+
+      .quantityBtn {
+        position: relative;
+        background-color: transparent;
+        border: none;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        .minusIcon,.plusIcon{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: rgba($color: #303030, $alpha: 0.8);
+        }
+
+        &:hover {
+          transform: scale(1.2);
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+
+        &:active .minusIcon,&:active .plusIcon{
+          color: rgba($color: #303030, $alpha: 1);
+        }
+    
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .quantityDiv{
+        position: absolute;
+        left: 50%;
+        top: 48%;
+        transform: translate(-50%,-48%);
+      }
+      .quantityDisplay {
+        color : rgba($color: #303030, $alpha: 0.6);
+        font-size: 16px;
+        font-family: Cormorant, serif;
+        font-style: normal;
+        text-decoration: none;
+        font-weight: 100;
+        text-transform: uppercase;
+        letter-spacing: .2em;
+      }
+    }
+  }
+
+
+  .addToCart {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .addToCartBTN {
+    touch-action: manipulation;
+    width: 100%;
+    height: 3rem;
+    background-color: transparent;
+    border: 1px solid rgba($color: #303030, $alpha: 0.2);
+    color: rgba($color: #303030, $alpha: 0.8);
+    font-family: "Cormorant Garamond", serif;
+    font-style: normal;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    word-spacing: .2em;
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 15px;
+    cursor: pointer;
+    // transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba($color: #303030, $alpha: 0.01);
+      transform: scale(1.05);
+    }
+
+    &:active {
+      background-color: rgba($color: #303030, $alpha: 0.1);
+      transform: scale(0.95);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .addToCartBTN:hover {
+      background-color: transparent;
+      transform: scale(1);
+    }
+    .addToCartBTN:active {
+      background-color: transparent;
+      transform: scale(1);
+    }
+  }
+
+  .AccordionDiv{
+    margin-top: 20px;
+  }
+}
+
+
+.checkboxContainer {
+  cursor: pointer;
+  width: 100%;
+}
+
+.checkboxLabel {
+  color: rgba($color: #303030, $alpha: 0.8);
+  letter-spacing: .2em;
+  font-size: 15px;
+  font-family: "Cormorant Garamond", serif;
+  font-style: normal;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.customCheckbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 2px solid rgba($color: #ccc, $alpha: .6);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+  position: relative;
+}
+
+.customCheckbox:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkboxLabel input:checked + .customCheckbox {
+  background-color: rgba($color: #9a9a9a, $alpha: 1);
+  border-color: rgba($color: #7e7e7e, $alpha: 1);
+}
+
+.checkboxLabel input:checked + .customCheckbox:after {
+  display: block;
+}
+
+.checkboxLabel .customCheckbox:after {
+  left: 5.2px;
+  top: 1px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+
+
+.zoomButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  z-index: 10;
+
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #303030;
+  }
+}
+
+.previewOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0.5rem;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+}
+
+.previewImage {
+  max-width: 100%;
+  max-height: 100vh;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
